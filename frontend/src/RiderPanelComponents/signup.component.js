@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react'
-
+import axios from 'axios'
 export default class SignUp extends Component {
 
   
@@ -107,5 +107,7 @@ export default class SignUp extends Component {
         </p>
       </form>
     )
+
+   
   }
 }

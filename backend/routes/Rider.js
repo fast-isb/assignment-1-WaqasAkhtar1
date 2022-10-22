@@ -1,9 +1,8 @@
 import express from 'express';
-
 // const express = require('express');
 const router = express.Router();
 
-const users = [
+const Rider = [
     {
         name: 'John Doe',
         age: 25
@@ -11,11 +10,12 @@ const users = [
 ]
 
 router.get('/', (req, res) => {
-    res.send(users)
+    console.log("chl rha hy"); 
+    res.send(Rider)
 })
 
-router.post('/', (req, res) => {
-    const user = req.body;
+router.post('/signup', (req, res) => {
+    const Rider = req.body;
     console.log(req.body);
     res.send(`added into the DB`)
 })
