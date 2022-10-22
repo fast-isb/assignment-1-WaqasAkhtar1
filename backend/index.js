@@ -8,7 +8,7 @@ import express from 'express'; // <-- Module Style import
 import bodyParser from 'body-parser';
 
 // Importing user route
-import router from './routes/users.js';
+import router from './routes/Rider.js';
 // const router = require('router')
 
 // const bodyParser = require('body-parser')
@@ -18,7 +18,7 @@ const port = 3001
 
 app.use(bodyParser.json())
 // Adding a Router
-app.use('/users', router);
+app.use('/Rider', router);
 
 app.get('/', (req, res) => {
     res.send('Hello Universe!')
