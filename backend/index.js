@@ -6,19 +6,31 @@
 //const express = require('express')
 import express from 'express'; // <-- Module Style import
 import bodyParser from 'body-parser';
+import cors from "cors";
+import mongoose from "mongoose";
+import {} from "dotenv/config";
+
 
 // Importing user route
-import router from './routes/Rider.js';
+import Riderrouter from './routes/Rider.js';
 // const router = require('router')
 
 // const bodyParser = require('body-parser')
 
 const app = express()
 const port = 3001
-
+app.use(cors());
 app.use(bodyParser.json())
+
+const uri = process.env.ATLAS_URI;
+mongoose.connect(uri);
+const connection = mongoose.connection;
+connection.once("open", () => {
+  console.log("MongoDB database connection established successfully");
+});
+
 // Adding a Router
-app.use('/Rider', router);
+app.use('/Rider', Riderrouter);
 
 app.get('/', (req, res) => {
     res.send('Hello Universe!')

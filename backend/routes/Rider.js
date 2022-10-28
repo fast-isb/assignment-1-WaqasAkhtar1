@@ -1,25 +1,36 @@
 import express from 'express';
+import Rider from '../models/Rider.model.js';
 // const express = require('express');
-const router = express.Router();
+const Riderrouter = express.Router();
 
-const Rider = [
-    {
-        name: 'John Doe',
-        age: 25
-    }
-]
 
-router.get('/', (req, res) => {
-    console.log("chl rha hy"); 
-    res.send(Rider)
-})
 
-router.post('/signup', (req, res) => {
-    const Rider = req.body;
+Riderrouter.post('/Register', (req, res) => {
+  let name = req.body.name;
+  let email =req.body.Email;
+  let pNo = req.body.pNumber;
+  let password = req.body.password;
+  let license = req.body.License;
+
+  const newRider = new Rider({
+    name,
+    email,
+    password,
+    pNo,
+    license,
+  });
+
+  newRider
+    .save()
+    .then(() => {
+      res.json("Rider has been added");
+    })
+    .catch((err) => {
+      res.status(400).json("Error " + err);
+    });
     console.log(req.body);
-    res.send(`added into the DB`)
 })
 
-export default router;
+export default Riderrouter;
 
 // module.exports = router;

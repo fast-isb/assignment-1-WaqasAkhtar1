@@ -37,17 +37,32 @@ export default class SignUp extends Component {
     
   }
  
-  handleSubmit(event) {
-    alert('An essay was submitted: ' + this.state.value1);
-
-
+  handleSubmit = async (event)=> {
+    
     event.preventDefault();
+
+    const rider = {
+      
+      name: this.state.value1,
+      Email: this.state.value2,
+      password: this.state.value3,
+      pNumber: this.state.value4,
+      License: this.state.value5,
+    };
+    
+    try {
+      await axios
+        .post("http://localhost:3001/Rider/Register",rider)
+        .then((res) => {
+          console.log(res.data);
+        });
+      alert("Sign up was successful");
+    } catch (evnt) {
+      
+      alert('this Rider already exists or Error has occurred');
+    }
   }
   render() {
-    axios.post('http://localhost:3001/Rider/', this.state)
-            .then(res => {
-                console.log(res.data)
-            })
   return (
       <form onSubmit={this.handleSubmit}>
         <h3>Sign Up</h3>
