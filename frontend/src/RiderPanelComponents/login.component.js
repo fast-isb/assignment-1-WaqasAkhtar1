@@ -16,18 +16,18 @@ import axios from "axios";
       };
       let onLogin = async (e) => {
         e.preventDefault();
-        const users = {
+        const user = {
           email: rider.email,
           password: rider.password,
         };
-        console.log(users);
+        console.log(user);
     
         try {
           let response = await axios.post(
             "http://localhost:3001/Rider/login",
-            users
+            user
           );
-          console.log(users);
+          
 
           if (response.data[0].email === rider.email) {
             if (response.data[0].password === rider.password) {
@@ -37,7 +37,7 @@ import axios from "axios";
                 },
               });
               */
-              alert("Sign in ho gia re baba");
+              alert("Login is sucessfull");
             }
           }
         } catch (e) {

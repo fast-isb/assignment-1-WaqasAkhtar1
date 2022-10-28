@@ -4,6 +4,7 @@ import './App.css'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import Login from './RiderPanelComponents/login.component'
 import SignUp from './RiderPanelComponents/signup.component'
+import ManageRider from './AdminComponents/ManageRider.component'
 function App() {
   return (
     <Router>
@@ -35,6 +36,7 @@ function App() {
               <Route exact path="/" element={<Login />} />
               <Route path="/sign-in" element={<Login />} />
               <Route path="/sign-up" element={<SignUp />} />
+              <Route path="/Admin/Manage-Rider" element={<ManageRider />} />
             </Routes>
           </div>
         </div>

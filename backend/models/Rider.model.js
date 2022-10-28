@@ -8,7 +8,7 @@ const RiderSchema = new Schema({
   password : {type: String, required: true, unique: false, trim: true, minlength: 4},
   email : {type: String, unique: true, required: true, minlength: 6},
   license: {type: String, required: true, minlength: 8},
-
+   status : {type: Boolean, required: true},
 }, {
   timestamps: true,
 });
