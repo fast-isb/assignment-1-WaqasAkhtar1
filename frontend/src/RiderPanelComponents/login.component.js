@@ -1,44 +1,59 @@
-import React, { Component } from 'react'
+import React, { useState } from "react";
+import axios from "axios";
 
-export default class Login extends Component {
-  
-  constructor(props) {
-    super(props);
-    this.state = {
-      value1: '',
-      value2: '',
+  function Login() {
+      let [rider, setrider] = useState({
+        email: "",
+        password: "",
+      });
+      let updateemail = (e) => {
+
+        setrider({ email: e.target.value, password: rider.password });
+      };
+      let updatepassword = (e) => {
       
-    };
-     
-     this.handleChangeEmail=this.handleChangeEmail.bind(this);
-     this.handleChangePassword=this.handleChangePassword.bind(this);
-     this.handleSubmit=this.handleSubmit.bind(this);
-  }
-  handleChangeEmail(e) {
-    this.setState({value1: e.target.value});
-  }
+        setrider({ email: rider.email, password: e.target.value });
+      };
+      let onLogin = async (e) => {
+        e.preventDefault();
+        const users = {
+          email: rider.email,
+          password: rider.password,
+        };
+        console.log(users);
+    
+        try {
+          let response = await axios.post(
+            "http://localhost:3001/Rider/login",
+            users
+          );
+          console.log(users);
 
-  handleChangePassword(e) {
-    this.setState({value2: e.target.value});
-  }
-  
- 
-  handleSubmit(event) {
-    alert('An essay was submitted: ' + this.state.value1);
-
-
-    event.preventDefault();
-  }
-  render() {
+          if (response.data[0].email === rider.email) {
+            if (response.data[0].password === rider.password) {
+            /*  navigate("/worker/profile", {
+                state: {
+                  username: worker.username,
+                },
+              });
+              */
+              alert("Sign in ho gia re baba");
+            }
+          }
+        } catch (e) {
+          alert("Your Credentials are not correct");
+        }
+      };
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form>
         <h3>Sign In</h3>
         <div className="mb-3">
           <label>Email address</label>
           <input
             type="email"
             className="form-control"
-            value={this.state.value1} onChange={this.handleChangeEmail} 
+            value={rider.email}
+              onChange={updateemail}
             placeholder="Enter email"
           />
         </div>
@@ -47,7 +62,8 @@ export default class Login extends Component {
           <input
             type="password"
             className="form-control"
-            value={this.state.value2} onChange={this.handleChangePassword} 
+            value={rider.password}
+            onChange={updatepassword}
             placeholder="Enter password"
           />
         </div>
@@ -64,8 +80,8 @@ export default class Login extends Component {
           </div>
         </div>
         <div className="d-grid">
-          <button type="submit" className="btn btn-primary">
-            Submit
+          <button type="submit" className="btn btn-primary" onClick={onLogin}>
+            Login in 
           </button>
         </div>
         <p className="forgot-password text-right">
@@ -74,4 +90,4 @@ export default class Login extends Component {
       </form>
     )
   }
-}
+export default Login;

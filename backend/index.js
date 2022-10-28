@@ -23,6 +23,7 @@ app.use(cors());
 app.use(bodyParser.json())
 
 const uri = process.env.ATLAS_URI;
+
 mongoose.connect(uri);
 const connection = mongoose.connection;
 connection.once("open", () => {
