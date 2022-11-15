@@ -47,20 +47,20 @@ import axios from "axios";
     return (
       <form>
         <h3>Sign In</h3>
-        <div className="mb-3">
+        <div className="mb-3" id="email">
           <label>Email address</label>
           <input
-            type="email" id="email"
+            type="email" 
             className="form-control"
             value={rider.email}
               onChange={updateemail}
             placeholder="Enter email"
           />
         </div>
-        <div className="mb-3">
+        <div className="mb-3" id="password">
           <label>Password</label>
           <input
-            type="password" id="password"
+            type="password" 
             className="form-control"
             value={rider.password}
             onChange={updatepassword}

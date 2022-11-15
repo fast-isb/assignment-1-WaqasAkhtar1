@@ -66,35 +66,35 @@ export default class SignUp extends Component {
   return (
       <form onSubmit={this.handleSubmit}>
         <h3 data-testid="signup">Sign Up</h3> 
-        <div className="mb-3">
+        <div className="mb-3" id="name">
           <label>Full name</label>
           <input
             type="text"
-            className="form-control" id="name"
+            className="form-control" 
             value={this.state.value1} onChange={this.handleChangeName} 
             placeholder="Full name"
           />
         </div>
-        <div className="mb-3">
+        <div className="mb-3" id="email">
           <label>Email address</label>
           <input
             type="email"
-            className="form-control" id="email"
+            className="form-control" 
             value={this.state.value2} onChange={this.handleChangeEmail} 
             placeholder="Enter email"
           />
         </div>
-        <div className="mb-3">
+        <div className="mb-3" id="password">
           <label>Password</label>
           <input
             type="password"
-            className="form-control" id="password"
+            className="form-control" 
             value={this.state.value3} onChange={this.handleChangePassword} 
             placeholder="Enter password"
           />
         </div>
 
-        <div className="mb-3">
+        <div className="mb-3" id="phone_number">
           <label>Phone Number</label>
           <input
             type="text"
@@ -103,17 +103,17 @@ export default class SignUp extends Component {
             value={this.state.value4} onChange={this.handleChangePhone} 
             />
             </div>
-        <div className="mb-3">
+        <div className="mb-3" id="license">
           <label>Driving License Number</label>
           <input
             type="text"
-            className="form-control" id="license"
+            className="form-control" 
             placeholder="Enter driving license"
             value={this.state.value5} onChange={this.handleChangeLicense} 
           />
         </div>
-        <div className="d-grid">
-          <button type="submit"  id ="signup_button" className="btn btn-primary" >
+        <div className="d-grid" id ="signup_button" >
+          <button type="submit"  className="btn btn-primary" >
             Sign Up
           </button>
         </div>

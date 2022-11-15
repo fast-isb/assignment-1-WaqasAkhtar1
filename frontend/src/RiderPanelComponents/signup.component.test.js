@@ -50,6 +50,15 @@ const signupBtton = screen.queryByTestId("email");
 waitFor(() => expect(getByTestId(signupBtton)).toBeInTheDocument());
 })
 
+
+test("phone ", () => {
+    render(<MemoryRouter>
+        <SignUp />
+    </MemoryRouter>)
+const signupBtton = screen.queryByTestId("phone_number");
+waitFor(() => expect(getByTestId(signupBtton)).toBeInTheDocument());
+})
+
 test('Sign up', () => {
     render(<MemoryRouter>
         <SignUp />
@@ -60,4 +69,3 @@ test('Sign up', () => {
     
   });
 
-  
