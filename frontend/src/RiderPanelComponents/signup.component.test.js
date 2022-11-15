@@ -25,10 +25,19 @@ const signupBtton = screen.queryByTestId("name");
 waitFor(() => expect(getByTestId(signupBtton)).toBeInTheDocument());
 })
 
-test("name ", () => {
+test("license ", () => {
     render(<MemoryRouter>
         <SignUp />
     </MemoryRouter>)
 const signupBtton = screen.queryByTestId("license");
+waitFor(() => expect(getByTestId(signupBtton)).toBeInTheDocument());
+})
+
+
+test("password ", () => {
+    render(<MemoryRouter>
+        <SignUp />
+    </MemoryRouter>)
+const signupBtton = screen.queryByTestId("password");
 waitFor(() => expect(getByTestId(signupBtton)).toBeInTheDocument());
 })

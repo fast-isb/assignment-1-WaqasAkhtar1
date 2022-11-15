@@ -88,7 +88,7 @@ export default class SignUp extends Component {
           <label>Password</label>
           <input
             type="password"
-            className="form-control"
+            className="form-control" id="password"
             value={this.state.value3} onChange={this.handleChangePassword} 
             placeholder="Enter password"
           />
