@@ -70,7 +70,7 @@ export default class SignUp extends Component {
           <label>Full name</label>
           <input
             type="text"
-            className="form-control"
+            className="form-control" id="name"
             value={this.state.value1} onChange={this.handleChangeName} 
             placeholder="Full name"
           />
@@ -107,13 +107,13 @@ export default class SignUp extends Component {
           <label>Driving License Number</label>
           <input
             type="text"
-            className="form-control"
+            className="form-control" id="license"
             placeholder="Enter driving license"
             value={this.state.value5} onChange={this.handleChangeLicense} 
           />
         </div>
         <div className="d-grid">
-          <button type="submit" className="btn btn-primary" >
+          <button type="submit"  id ="signup_button" className="btn btn-primary" >
             Sign Up
           </button>
         </div>
