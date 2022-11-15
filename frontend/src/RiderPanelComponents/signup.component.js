@@ -112,8 +112,9 @@ export default class SignUp extends Component {
             value={this.state.value5} onChange={this.handleChangeLicense} 
           />
         </div>
-        <div className="d-grid" id ="signup_button" >
-          <button type="submit"  className="btn btn-primary" >
+
+        <div className="d-grid">
+          <button type="submit"  id ="signup_button" className="btn btn-primary" >
             Sign Up
           </button>
         </div>
