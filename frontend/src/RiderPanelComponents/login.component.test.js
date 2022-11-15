@@ -16,3 +16,18 @@ afterEach(() => {
     waitFor(() => expect(getByTestId(logBtton)).toBeInTheDocument());
 })
 
+test("email", () => {
+    render(<MemoryRouter>
+        <Login />
+    </MemoryRouter>)
+const logBtton = screen.queryByTestId("email");
+waitFor(() => expect(getByTestId(logBtton)).toBeInTheDocument());
+})
+
+test("password", () => {
+    render(<MemoryRouter>
+        <Login />
+    </MemoryRouter>)
+const logBtton = screen.queryByTestId("password");
+waitFor(() => expect(getByTestId(logBtton)).toBeInTheDocument());
+})

@@ -50,7 +50,7 @@ import axios from "axios";
         <div className="mb-3">
           <label>Email address</label>
           <input
-            type="email"
+            type="email" id="email"
             className="form-control"
             value={rider.email}
               onChange={updateemail}
@@ -60,7 +60,7 @@ import axios from "axios";
         <div className="mb-3">
           <label>Password</label>
           <input
-            type="password"
+            type="password" id="password"
             className="form-control"
             value={rider.password}
             onChange={updatepassword}
