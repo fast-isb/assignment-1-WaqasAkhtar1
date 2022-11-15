@@ -31,12 +31,7 @@ import axios from "axios";
 
           if (response.data[0].email === rider.email) {
             if (response.data[0].password === rider.password) {
-            /*  navigate("/worker/profile", {
-                state: {
-                  username: worker.username,
-                },
-              });
-              */
+          
               alert("Login is sucessfull");
             }
           }
