@@ -65,7 +65,7 @@ export default class SignUp extends Component {
   render() {
   return (
       <form onSubmit={this.handleSubmit}>
-        <h3>Sign Up</h3>
+        <h3 data-testid="signup">Sign Up</h3> 
         <div className="mb-3">
           <label>Full name</label>
           <input
@@ -79,7 +79,7 @@ export default class SignUp extends Component {
           <label>Email address</label>
           <input
             type="email"
-            className="form-control"
+            className="form-control" id="email"
             value={this.state.value2} onChange={this.handleChangeEmail} 
             placeholder="Enter email"
           />
