@@ -42,20 +42,20 @@ import axios from "axios";
     return (
       <form>
         <h3>Sign In</h3>
-        <div className="mb-3">
+        <div className="mb-3" id="email">
           <label>Email address</label>
           <input
-            type="email"
+            type="email" 
             className="form-control"
             value={rider.email}
               onChange={updateemail}
             placeholder="Enter email"
           />
         </div>
-        <div className="mb-3">
+        <div className="mb-3" id="password">
           <label>Password</label>
           <input
-            type="password"
+            type="password" 
             className="form-control"
             value={rider.password}
             onChange={updatepassword}
@@ -75,7 +75,7 @@ import axios from "axios";
           </div>
         </div>
         <div className="d-grid">
-          <button type="submit" className="btn btn-primary" onClick={onLogin}>
+          <button type="submit" id = "login_button"className="btn btn-primary" onClick={onLogin}>
             Login in 
           </button>
         </div>
