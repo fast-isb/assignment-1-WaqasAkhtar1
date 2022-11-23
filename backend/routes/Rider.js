@@ -47,7 +47,7 @@ Riderrouter.post("/login", (req, res) => {
 });
 
 Riderrouter.post("/getRider", (req, res) => {
-  Rider.find({ email: req.body.email })
+  Rider.find({ email: req.body.Email })
     .then((riders) => {
       res.json(riders);
     })
@@ -58,7 +58,7 @@ Riderrouter.post("/getRider", (req, res) => {
 
 
 Riderrouter.post("/delete", (req, res) => {
-  Rider.deleteOne({ email: req.body.email })
+  Rider.deleteOne({ email: req.body.Email })
     .then(() => {
       res.json("Rider Deleted");
     })
@@ -68,7 +68,7 @@ Riderrouter.post("/delete", (req, res) => {
 });
 
 Riderrouter.post("/status", async (req, res) => {
-  let filter = { email: req.body.email };
+  let filter = { email: req.body.Email };
   let update = { status: req.body.status };
 
   console.log(req.body);
@@ -77,6 +77,38 @@ Riderrouter.post("/status", async (req, res) => {
 
   res.json("Status Updated");
 });
+
+Riderrouter.post('/accept_appliaction', (req, res) => {
+  var required = {
+      email: req.body.email
+  }
+  var temp = req.body
+  temp.status=true;
+Rider.updateOne(required, temp).then(() => {
+      res.json('Application has been accepted')
+  }).catch(() => {
+      res.json('application cannot be accepted i.e., there wan an error while updating the information')
+  })
+});
+
+Riderrouter.post('/reject_appliaction', (req, res) => {
+  var required = {
+      email: req.body.email
+  }
+  var temp = req.body
+  temp.status=false;
+Rider.updateOne(required, temp).then(() => {
+      res.json('Application has been rejected')
+  }).catch(() => {
+      res.json('application cannot be rejected i.e., there wan an error while updating the information')
+  })
+});
+
+Riderrouter.get('/list', (req, res) => {
+  Rider.find().then(riders => res.json(riders)).catch(() => {
+      res.send('could not be fatched')
+  })
+})
 
 
 export default Riderrouter;

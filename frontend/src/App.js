@@ -1,6 +1,5 @@
 import React from 'react'
-
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import Login from './RiderPanelComponents/login.component'
